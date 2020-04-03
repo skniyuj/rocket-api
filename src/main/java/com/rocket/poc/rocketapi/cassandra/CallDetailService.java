@@ -12,4 +12,8 @@ public class CallDetailService {
     public List<CallDetail> getAllCalls() {
         return callDetailsDao.getAllCallDetail();
     }
+    
+    public List<CallCount> getAllCallCount() {
+        return callDetailsDao.getAllCallCount();
+    }
 }

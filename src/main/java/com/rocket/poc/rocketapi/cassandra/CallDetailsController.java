@@ -16,4 +16,9 @@ public class CallDetailsController {
     List<CallDetail> getAllPeople(){
         return callDetailService.getAllCalls();
     }
+    
+    @RequestMapping("/cassandra/count")
+    public List<CallCount> getAllCallCount() {
+        return callDetailService.getAllCallCount();
+    }
 }
