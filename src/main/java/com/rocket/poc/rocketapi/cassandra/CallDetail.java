@@ -5,6 +5,7 @@ import org.springframework.data.cassandra.core.mapping.Table;
 
 @Table
 public class CallDetail {
+    // <host>ymdh<callid>
     @PrimaryKey
     private int hostid;
     private int year;
@@ -15,6 +16,8 @@ public class CallDetail {
     private String dst;
     private String src;
     private double mos;
+    private String created;
+
     public int getCallid() {
         return callid;
     }
@@ -69,6 +72,12 @@ public class CallDetail {
     public void setMos(double mos) {
         this.mos = mos;
     }
+    public String getCreated() {
+        return created;
+    }
+    public void setCreated(String created) {
+        this.created = created;
+    }
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -84,6 +93,7 @@ public class CallDetail {
         result = prime * result + (int) (temp ^ (temp >>> 32));
         result = prime * result + ((src == null) ? 0 : src.hashCode());
         result = prime * result + year;
+        result = prime * result + ((created == null) ? 0 : created.hashCode());
         return result;
     }
     @Override
@@ -119,11 +129,16 @@ public class CallDetail {
             return false;
         if (year != other.year)
             return false;
+        if (created == null) {
+            if (other.created != null)
+                return false;
+        } else if (!created.equals(other.created))
+            return false;
         return true;
     }
     @Override
     public String toString() {
         return "CallDetail [callid=" + callid + ", hostid=" + hostid + ", year=" + year + ", month=" + month + ", day="
-                + day + ", hour=" + hour + ", dst=" + dst + ", src=" + src + ", mos=" + mos + "]";
+                + day + ", hour=" + hour + ", dst=" + dst + ", src=" + src + ", mos=" + mos +  ", created=" + created + "]";
     }
 }

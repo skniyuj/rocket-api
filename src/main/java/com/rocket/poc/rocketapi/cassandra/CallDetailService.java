@@ -12,8 +12,16 @@ public class CallDetailService {
     public List<CallDetail> getAllCalls() {
         return callDetailsDao.getAllCallDetail();
     }
-    
-    public List<CallCount> getAllCallCount() {
-        return callDetailsDao.getAllCallCount();
+
+    public List<CallRecord> case1_getIntervalCallDetails(int hostId, String startDay, String endDay) {
+        return callDetailsDao.case1_getIntervalCallDetails(hostId, startDay, endDay);
+    }
+
+    public List<HourlyCalls> case2_getCallsInADay(int hostId, String day) {
+        return callDetailsDao.case2_getCallsInADay(hostId, day);
+    }
+
+    public List<HourlyAvgMOS> case3_getIntervalMOSValues(int hostId, String startDay, String endDay) {
+        return callDetailsDao.case3_getIntervalMOSValues(hostId, startDay, endDay);
     }
 }
